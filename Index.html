@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Lana ❤️</title>
-    <style>
     <link rel="stylesheet" href="Css.style">    
+    <style>
         body, html {
             margin: 0; padding: 0; height: 100%;
             font-family: sans-serif;
@@ -18,9 +18,17 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         img { width: 100%; border-radius: 15px; margin-bottom: 20px; }
         h2 { color: #ff4d6d; }
-        .btn-next { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; }
+        .btn-next { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin: 5px; }
         .heart { position: fixed; top: -20px; font-size: 24px; animation: fall linear forwards; z-index: 1; }
         @keyframes fall { to { transform: translateY(110vh); } }
+        
+        /* Efeito de pulsar para o Step final */
+        .pulse { animation: pulseAnim 2s infinite; color: #ff4d6d; }
+        @keyframes pulseAnim {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -29,11 +37,12 @@
     <div class="step active" id="step1">
         <h2>Oi, Lana... ❤️</h2>
         <p>Hoje fazemos 2 meses. Você é a minha 'The One'.</p>
+        <p>Já são <span id="contador">60</span> dias de muita aura roxa.</p>
         <button class="btn-next" onclick="nextStep(2)">Começar nossa história</button>
     </div>
 
     <div class="step" id="step2">
-        <img src="foto1.jpg" alt="Foto 1">
+        <img src="foto1.jpg" alt="Nosso começo">
         <h2>Onde tudo começou</h2>
         <p>Cada momento com você é especial.</p>
         <button class="btn-next" onclick="nextStep(3)">Próximo</button>
@@ -43,7 +52,14 @@
         <h2>Para você nunca esquecer</h2>
         <p id="frase">Você é incrível!</p>
         <button class="btn-next" onclick="gerarFrase()">Novo Elogio</button>
-        <p style="margin-top:20px; font-size:0.8rem;">Mal posso esperar pelo nosso sábado.</p>
+        <br><br>
+        <button class="btn-next" style="background: #4a4a4a;" onclick="nextStep(4)">Continuar... 😏</button>
+    </div>
+
+    <div id="step4" class="step">
+        <h2 class="pulse">Agora, pare de olhar para essa tela...</h2>
+        <h1 style="font-size: 2.5rem;">Olhe para mim. 🫵</h1>
+        <p>Eu tenho uma surpresa que tem o seu cheiro.</p>
     </div>
 </div>
 
@@ -53,21 +69,8 @@
         document.getElementById('step' + n).classList.add('active');
     }
 
-    function gerarFrase() {
-        const frases = ["Amo seu sorriso", "Você é perfeita", "Seu cheiro é o melhor"];
-        document.getElementById('frase').innerText = frases[Math.floor(Math.random() * frases.length)];
-    }
-
-    function createHeart() {
-        const heart = document.createElement('div');
-        heart.classList.add('heart');
-        heart.innerHTML = '❤️';
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 5000);
-    }
-    setInterval(createHeart, 400);
+    // A função gerarFrase e o Contador estão no seu arquivo Java.script externo
+    // Mas deixei essa base aqui por segurança
 </script>
 <script src="Java.script"></script>    
 </body>
