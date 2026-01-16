@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Lana ❤️</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; height: 100%;
+            font-family: sans-serif;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffe3e3 100%);
+            overflow: hidden; color: #4a4a4a;
+        }
+        .container { display: flex; justify-content: center; align-items: center; height: 100%; text-align: center; padding: 20px; }
+        .step { display: none; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 400px; width: 100%; }
+        .step.active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        img { width: 100%; border-radius: 15px; margin-bottom: 20px; }
+        h2 { color: #ff4d6d; }
+        .btn-next { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; }
+        .heart { position: fixed; top: -20px; font-size: 24px; animation: fall linear forwards; z-index: 1; }
+        @keyframes fall { to { transform: translateY(110vh); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="step active" id="step1">
+        <h2>Oi, Lana... ❤️</h2>
+        <p>Hoje fazemos 2 meses. Você é a minha 'The One'.</p>
+        <button class="btn-next" onclick="nextStep(2)">Começar nossa história</button>
+    </div>
+
+    <div class="step" id="step2">
+        <img src="foto1.jpg" alt="Foto 1">
+        <h2>Onde tudo começou</h2>
+        <p>Cada momento com você é especial.</p>
+        <button class="btn-next" onclick="nextStep(3)">Próximo</button>
+    </div>
+
+    <div class="step" id="step3">
+        <h2>Para você nunca esquecer</h2>
+        <p id="frase">Você é incrível!</p>
+        <button class="btn-next" onclick="gerarFrase()">Novo Elogio</button>
+        <p style="margin-top:20px; font-size:0.8rem;">Mal posso esperar pelo nosso sábado.</p>
+    </div>
+</div>
+
+<script>
+    function nextStep(n) {
+        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+        document.getElementById('step' + n).classList.add('active');
+    }
+
+    function gerarFrase() {
+        const frases = ["Amo seu sorriso", "Você é perfeita", "Seu cheiro é o melhor"];
+        document.getElementById('frase').innerText = frases[Math.floor(Math.random() * frases.length)];
+    }
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 400);
+</script>
+</body>
+</html>
