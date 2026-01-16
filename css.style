@@ -1,0 +1,18 @@
+.step {
+    display: none; /* Esconde por padrão */
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.step.active {
+    display: block; /* Só mostra o passo com a classe active */
+}
+
+/* Deixa o container centralizado e bonito */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
