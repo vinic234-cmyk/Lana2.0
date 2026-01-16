@@ -1,0 +1,20 @@
+<script>
+    // Função para trocar de etapa
+    function nextStep(stepNumber) {
+        // Remove a classe active de todos
+        document.querySelectorAll('.step').forEach(step => {
+            step.classList.remove('active');
+        });
+        // Adiciona no passo atual
+        document.getElementById('step' + stepNumber).classList.add('active');
+    }
+
+    // Lógica do Contador de Dias (Personalize a data de início aqui)
+    const dataInicio = new Date("2025-11-15"); // Exemplo de 2 meses atrás
+    const hoje = new Date();
+    const diffTime = Math.abs(hoje - dataInicio);
+    const diffDays = Math.ceil(diffTime / (2025 * 11 * 15 * 24));
+    
+    // Insere o valor no seu HTML se você criar um ID pra isso
+    // document.getElementById('contador').innerText = diffDays;
+</script>
