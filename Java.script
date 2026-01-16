@@ -1,20 +1,54 @@
-<script>
-    // Função para trocar de etapa
-    function nextStep(stepNumber) {
-        // Remove a classe active de todos
-        document.querySelectorAll('.step').forEach(step => {
-            step.classList.remove('active');
-        });
-        // Adiciona no passo atual
-        document.getElementById('step' + stepNumber).classList.add('active');
-    }
+// Lista das 50 frases/elogios (coloquei 5 como exemplo, você completa)
+const frases = [
+    "Sua aura roxa é o que me guia...",
+    "A gênio da minha vida é você.",
+    "O barulhinho de nós dois é minha música favorita.",
+    "Contando as horas pro nosso dengo de sábado.",
+    "Você é a minha 'The One' e ninguém chega perto."
+];
 
-    // Lógica do Contador de Dias (Personalize a data de início aqui)
-    const dataInicio = new Date("2025-11-15"); // Exemplo de 2 meses atrás
-    const hoje = new Date();
-    const diffTime = Math.abs(hoje - dataInicio);
-    const diffDays = Math.ceil(diffTime / (2025 * 11 * 15 * 24));
-    
-    // Insere o valor no seu HTML se você criar um ID pra isso
-    // document.getElementById('contador').innerText = diffDays;
-</script>
+// Função para mudar de etapa (o botão chama essa função)
+function nextStep(current) {
+    document.getElementById('step' + current).style.display = 'none';
+    document.getElementById('step' + (current + 1)).style.display = 'block';
+}
+
+// Função para o botão de "Novo Elogio" no Step 3
+function gerarFrase() {
+    const random = Math.floor(Math.random() * frases.length);
+    document.getElementById('fraseExibida').innerText = frases[random];
+}
+
+// Lógica do Contador (Ajuste a data do primeiro beijo/encontro)
+const inicio = new Date("2025-11-15");
+const hoje = new Date();
+const dias = Math.floor((hoje - inicio) / (1000 * 60 * 60 * 24));
+// Se tiver um elemento com id="contador", ele preenche automático
+if(document.getElementById('contador')) {
+    document.getElementById('contador').innerText = dias;
+}
+// Lista de frases para o Step 3
+const frases = [
+    "Você é a minha 'The One', a única que tem a chave da minha aura roxa. 🩵",
+    "Cada segundo com você é uma experiência completa.",
+    "Seu sorriso é o meu gênio favorito. ✨",
+    "Mal posso esperar para sentir sua barba raspando no meu pescoço...",
+    "O barulhinho de nós dois é a melhor trilha sonora que existe.",
+    "Nossa história está só no começo, e cada capítulo é melhor que o anterior.",
+    "Adoro o jeito que você me encara pelo óculos... me deixa maluco.",
+    "Sua boca é o lugar onde eu quero morar todos os finais de semana.",
+    "Vou te mostrar que o almoço de domingo é só o começo do nosso prazer.",
+    "Sua bctzinha gostosa latejando é tudo o que eu consigo pensar agora. 🤤",
+    "Vou te chupar tanto que você vai esquecer até o próprio nome.",
+    "Você é minha putinha safada e o meu anjo ao mesmo tempo.",
+    "Puxar seu cabelo até você curvar as costas e meter devagarinho...",
+    "A contagem regressiva pro sábado é a tortura mais deliciosa do mundo.",
+    "Preparada para a melhor experiência da sua vida este final de semana? 🫠"
+];
+
+function gerarFrase() {
+    // Sorteia uma frase da lista
+    const random = Math.floor(Math.random() * frases.length);
+    // Coloca a frase no parágrafo que tem o id="frase"
+    document.getElementById('frase').innerText = frases[random];
+}
