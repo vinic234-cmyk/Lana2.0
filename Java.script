@@ -1,32 +1,3 @@
-// Lista das 50 frases/elogios (coloquei 5 como exemplo, você completa)
-const frases = [
-    "Sua aura roxa é o que me guia...",
-    "A gênio da minha vida é você.",
-    "O barulhinho de nós dois é minha música favorita.",
-    "Contando as horas pro nosso dengo de sábado.",
-    "Você é a minha 'The One' e ninguém chega perto."
-];
-
-// Função para mudar de etapa (o botão chama essa função)
-function nextStep(current) {
-    document.getElementById('step' + current).style.display = 'none';
-    document.getElementById('step' + (current + 1)).style.display = 'block';
-}
-
-// Função para o botão de "Novo Elogio" no Step 3
-function gerarFrase() {
-    const random = Math.floor(Math.random() * frases.length);
-    document.getElementById('fraseExibida').innerText = frases[random];
-}
-
-// Lógica do Contador (Ajuste a data do primeiro beijo/encontro)
-const inicio = new Date("2025-11-15");
-const hoje = new Date();
-const dias = Math.floor((hoje - inicio) / (1000 * 60 * 60 * 24));
-// Se tiver um elemento com id="contador", ele preenche automático
-if(document.getElementById('contador')) {
-    document.getElementById('contador').innerText = dias;
-}
 // Lista de frases para o Step 3
 const frases = [
     "Você é a minha 'The One', a única que tem a chave da minha aura roxa. 🩵",
