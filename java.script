@@ -1,13 +1,10 @@
 function nextStep(stepNumber) {
     document.querySelectorAll('.step').forEach(step => {
         step.classList.remove('active');
-        step.style.display = 'none';
     });
-    
     const nextStepElement = document.getElementById('step' + stepNumber);
     if (nextStepElement) {
         nextStepElement.classList.add('active');
-        nextStepElement.style.display = 'block';
     }
 }
 
@@ -17,10 +14,7 @@ const diffTime = Math.abs(hoje - dataInicio);
 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
 window.onload = function() {
-    const contadorElement = document.getElementById('contador');
-    if (contadorElement) {
-        contadorElement.innerText = diffDays;
-    }
+    document.getElementById('contador').innerText = diffDays;
 };
 
 const frases = [
@@ -28,25 +22,12 @@ const frases = [
     "A apaixonante Lana de Tróia",
     "Não sei quem é mais canibal",
     "As curvas mais perigosas",
-    "Você é a minha 'The One', a única que tem a chave da minha aura roxa. 🩵",
-    "Cada segundo com você é uma experiência completa.",
-    "Seu sorriso é o meu gênio favorito. ✨",
-    "Mal posso esperar para sentir seu cheiro ...",
-    "O barulhinho de nós dois é a melhor trilha sonora que existe.",
-    "Nossa história está só no começo, e cada capítulo é melhor que o anterior.",
-    "Adoro o jeito que você me encara pelo óculos... me deixa maluco.",
-    "Sua boca é o lugar onde eu quero morar todo dia .",
-    "Vou te mostrar que o almoço de domingo é só o começo do nosso prazer.",
+    "Você é a minha 'The One' 🩵",
     "Sua bctzinha gostosa latejando é tudo o que eu quero. 🤤",
-    "Vou te chupar tanto que você vai esquecer até o próprio nome.",
-    "Você é minha putinha safada e o meu anjo ao mesmo tempo.",
-    "Preparada para a melhor experiência da sua vida este final de semana? 🫠"
+    "Vou te chupar tanto que você vai esquecer até o próprio nome."
 ];
 
 function gerarFrase() {
     const random = Math.floor(Math.random() * frases.length);
-    const fraseElement = document.getElementById('frase');
-    if (fraseElement) {
-        fraseElement.innerText = frases[random];
-    }
+    document.getElementById('frase').innerText = frases[random];
 }
