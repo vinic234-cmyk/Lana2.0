@@ -1,20 +1,24 @@
 function nextStep(stepNumber) {
     document.querySelectorAll('.step').forEach(step => {
         step.classList.remove('active');
+        step.style.display = 'none';
     });
-    const nextStepElement = document.getElementById('step' + stepNumber);
-    if (nextStepElement) {
-        nextStepElement.classList.add('active');
+    const nextElement = document.getElementById('step' + stepNumber);
+    if (nextElement) {
+        nextElement.classList.add('active');
+        nextElement.style.display = 'block';
     }
 }
 
-const dataInicio = new Date("2024-11-15");
+// Data ajustada para 2025 para o contador dar ~63 dias
+const dataInicio = new Date("2025-11-15");
 const hoje = new Date();
 const diffTime = Math.abs(hoje - dataInicio);
 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
 window.onload = function() {
-    document.getElementById('contador').innerText = diffDays;
+    const cont = document.getElementById('contador');
+    if (cont) cont.innerText = diffDays;
 };
 
 const frases = [
@@ -24,10 +28,12 @@ const frases = [
     "As curvas mais perigosas",
     "Você é a minha 'The One' 🩵",
     "Sua bctzinha gostosa latejando é tudo o que eu quero. 🤤",
-    "Vou te chupar tanto que você vai esquecer até o próprio nome."
+    "Vou te chupar tanto que você vai esquecer até o próprio nome.",
+    "Preparada para a melhor experiência da sua vida este final de semana? 🫠"
 ];
 
 function gerarFrase() {
     const random = Math.floor(Math.random() * frases.length);
-    document.getElementById('frase').innerText = frases[random];
+    const campo = document.getElementById('frase');
+    if (campo) campo.innerText = frases[random];
 }
