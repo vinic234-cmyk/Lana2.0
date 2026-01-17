@@ -1,23 +1,23 @@
 // Função para trocar de etapa
 function nextStep(stepNumber) {
-    // Remove a classe active de todos
     document.querySelectorAll('.step').forEach(step => {
         step.classList.remove('active');
+        step.style.display = 'none'; // Garante que vai esconder
     });
-    // Adiciona no passo atual
+    
     const nextStepElement = document.getElementById('step' + stepNumber);
     if (nextStepElement) {
         nextStepElement.classList.add('active');
+        nextStepElement.style.display = 'block'; // Garante que vai mostrar
     }
 }
 
 // Lógica do Contador de Dias
-const dataInicio = new Date("2024-11-15"); // Ajustado para 2024 para dar 60 dias
+const dataInicio = new Date("2024-11-15");
 const hoje = new Date();
 const diffTime = Math.abs(hoje - dataInicio);
 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-// Insere o valor no seu HTML
 window.onload = function() {
     const contadorElement = document.getElementById('contador');
     if (contadorElement) {
@@ -25,12 +25,12 @@ window.onload = function() {
     }
 };
 
-// Função para o botão de elogio
+// Lista de frases corrigida
 const frases = [
     "O sorriso que me derrete",
     "A apaixonante Lana de Tróia",
     "Não sei quem é mais canibal",
-    "As curvas mais perigosas"
+    "As curvas mais perigosas",
     "Você é a minha 'The One', a única que tem a chave da minha aura roxa. 🩵",
     "Cada segundo com você é uma experiência completa.",
     "Seu sorriso é o meu gênio favorito. ✨",
@@ -44,7 +44,6 @@ const frases = [
     "Vou te chupar tanto que você vai esquecer até o próprio nome.",
     "Você é minha putinha safada e o meu anjo ao mesmo tempo.",
     "Preparada para a melhor experiência da sua vida este final de semana? 🫠"
-
 ];
 
 function gerarFrase() {
