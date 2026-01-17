@@ -9,7 +9,7 @@ body, html {
 .container { width: 90%; max-width: 450px; text-align: center; padding: 20px; }
 
 .step {
-    display: none;
+    display: none; /* Esconde por padrão */
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     padding: 25px;
@@ -17,7 +17,7 @@ body, html {
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.step.active { display: block; }
+.step.active { display: block !important; }
 
 img {
     width: 100%;
@@ -25,11 +25,10 @@ img {
     object-fit: cover;
     border-radius: 15px;
     margin-bottom: 15px;
-    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .btn-next {
-    background: #a855f7;
+    background: #ff4d6d;
     color: white; border: none; padding: 15px 30px;
     border-radius: 50px; cursor: pointer; font-weight: bold;
     margin-top: 10px; width: 100%;
