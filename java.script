@@ -1,18 +1,16 @@
-// Função para trocar de etapa
 function nextStep(stepNumber) {
     document.querySelectorAll('.step').forEach(step => {
         step.classList.remove('active');
-        step.style.display = 'none'; // Garante que vai esconder
+        step.style.display = 'none';
     });
     
     const nextStepElement = document.getElementById('step' + stepNumber);
     if (nextStepElement) {
         nextStepElement.classList.add('active');
-        nextStepElement.style.display = 'block'; // Garante que vai mostrar
+        nextStepElement.style.display = 'block';
     }
 }
 
-// Lógica do Contador de Dias
 const dataInicio = new Date("2024-11-15");
 const hoje = new Date();
 const diffTime = Math.abs(hoje - dataInicio);
@@ -25,7 +23,6 @@ window.onload = function() {
     }
 };
 
-// Lista de frases corrigida
 const frases = [
     "O sorriso que me derrete",
     "A apaixonante Lana de Tróia",
