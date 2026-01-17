@@ -1,65 +1,39 @@
 body, html {
     margin: 0; padding: 0; min-height: 100vh;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #2b1055 0%, #7597de 100%);
+    background: linear-gradient(135deg, #1a0a2e 0%, #4b1a4d 100%);
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
 }
 
-.container {
-    width: 90%;
-    max-width: 450px;
-    text-align: center;
-    padding: 20px;
-}
+.container { width: 90%; max-width: 450px; text-align: center; padding: 20px; }
 
 .step {
     display: none;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    animation: fadeIn 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.step.active {
-    display: block;
-}
+.step.active { display: block; }
 
 img {
     width: 100%;
-    max-height: 400px;
+    max-height: 350px;
     object-fit: cover;
     border-radius: 15px;
-    margin-bottom: 20px;
-    border: 2px solid rgba(255,255,255,0.2);
+    margin-bottom: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
 }
-
-h2 { color: #fff; margin-bottom: 15px; }
 
 .btn-next {
-    background: #ff4d6d;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: transform 0.2s;
-    margin-top: 10px;
+    background: #a855f7;
+    color: white; border: none; padding: 15px 30px;
+    border-radius: 50px; cursor: pointer; font-weight: bold;
+    margin-top: 10px; width: 100%;
 }
-
-.btn-next:active { transform: scale(0.95); }
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 .pulse { animation: pulseAnim 2s infinite; }
-@keyframes pulseAnim {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
+@keyframes pulseAnim { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
