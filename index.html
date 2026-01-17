@@ -1,38 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Lana ❤️</title>
-    <link rel="stylesheet" href="css.style">    
-    <style>
-        body, html {
-            margin: 0; padding: 0; height: 100%;
-            font-family: sans-serif;
-            background: linear-gradient(135deg, #fff0f3 0%, #ffe3e3 100%);
-            overflow: hidden; color: #4a4a4a;
-        }
-        .container { display: flex; justify-content: center; align-items: center; height: 100%; text-align: center; padding: 20px; }
-        .step { display: none; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 400px; width: 100%; }
-        .step.active { display: block; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; }
-        h2 { color: #ff4d6d; }
-        .btn-next { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin: 5px; }
-        .heart { position: fixed; top: -20px; font-size: 24px; animation: fall linear forwards; z-index: 1; }
-        @keyframes fall { to { transform: translateY(110vh); } }
-        
-        /* Efeito de pulsar para o Step final */
-        .pulse { animation: pulseAnim 2s infinite; color: #ff4d6d; }
-        @keyframes pulseAnim {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-    </style>
-</head>
-<body>
-
 <div class="container">
     <div class="step active" id="step1">
         <h2>Oi, Lana... ❤️</h2>
@@ -42,36 +7,65 @@
     </div>
 
     <div class="step" id="step2">
-        <img src="foto1.jpg" alt="Nosso começo">
+        <img src="Foto1.jpeg" alt="Onde tudo começou">
         <h2>Onde tudo começou</h2>
-        <p>Cada momento com você é especial.</p>
+        <p>Aquele primeiro frio na barriga que mudou tudo.</p>
         <button class="btn-next" onclick="nextStep(3)">Próximo</button>
     </div>
 
     <div class="step" id="step3">
-        <h2>Para você nunca esquecer</h2>
-        <p id="frase">Você é incrível!</p>
-        <button class="btn-next" onclick="gerarFrase()">Novo Elogio</button>
-        <br><br>
-        <button class="btn-next" style="background: #4a4a4a;" onclick="nextStep(4)">Continuar... 😏</button>
+        <img src="Foto2.jpeg" alt="Quem é mais canibal">
+        <h2>Não sei quem é mais canibal</h2>
+        <p>Dois carnívoros com muita fome... e a gente sabe como isso termina. 😋</p>
+        <button class="btn-next" onclick="nextStep(4)">Próximo</button>
     </div>
 
-    <div id="step4" class="step">
+    <div class="step" id="step4">
+        <img src="Foto3.jpeg" alt="Coração bater forte">
+        <h2>O motivo do meu coração bater mais forte</h2>
+        <p>É só te ver que o mundo para e o batimento acelera.</p>
+        <button class="btn-next" onclick="nextStep(5)">Próximo</button>
+    </div>
+
+    <div class="step" id="step5">
+        <img src="Foto4.jpeg" alt="Sorriso que derrete">
+        <h2>O sorriso que me derrete</h2>
+        <p>A minha maior fraqueza (e força) está nesse seu sorriso.</p>
+        <button class="btn-next" onclick="nextStep(6)">Próximo</button>
+    </div>
+
+    <div class="step" id="step6">
+        <img src="Foto5.jpeg" alt="Curvas perigosas">
+        <h2>As curvas mais perigosas</h2>
+        <p>Onde eu me perco e me encontro todas as vezes. 🤤</p>
+        <button class="btn-next" onclick="nextStep(7)">Próximo</button>
+    </div>
+
+    <div class="step" id="step7">
+        <img src="Foto6.jpeg" alt="Lana de Tróia">
+        <h2>A apaixonante Lana de Tróia</h2>
+        <p>Uma deusa que pararia qualquer guerra... ou começaria uma.</p>
+        <button class="btn-next" onclick="nextStep(8)">Próximo</button>
+    </div>
+
+    <div class="step" id="step8">
+        <img src="Foto7.jpeg" alt="2 meses de nós">
+        <h2>2 meses de nós</h2>
+        <p>O dengo mais gostoso e a conexão mais absurda que eu já tive.</p>
+        <button class="btn-next" onclick="nextStep(9)">Próximo</button>
+    </div>
+
+    <div class="step" id="step9">
+        <img src="Foto8.jpeg" alt="É só o começo">
+        <h2>E é só o começo</h2>
+        <p>A nossa história ainda vai ter muitos capítulos extraordinários.</p>
+        <br>
+        <button class="btn-next" onclick="nextStep(10)">O que vem agora? 😏</button>
+    </div>
+
+    <div id="step10" class="step">
         <h2 class="pulse">Agora, pare de olhar para essa tela...</h2>
-        <h1 style="font-size: 2.5rem;">Olhe para mim. 🫵</h1>
-        <p>Eu tenho uma surpresa que tem o seu cheiro.</p>
+        <h1 style="font-size: 2.5rem;">Olhe para mim agora. 🫵</h1>
+        <p>Eu tenho algo que tem o seu cheiro.</p>
     </div>
 </div>
-
-<script>
-    function nextStep(n) {
-        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-        document.getElementById('step' + n).classList.add('active');
-    }
-
-    // A função gerarFrase e o Contador estão no seu arquivo Java.script externo
-    // Mas deixei essa base aqui por segurança
-</script>
-<script src="java.script"></script>    
-</body>
-</html>
